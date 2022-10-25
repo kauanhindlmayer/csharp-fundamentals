@@ -48,14 +48,17 @@ namespace MeuApp
       Console.WriteLine(arr[0]);
       Console.WriteLine(arr2[0]);
 
-      // Structs
-      var mouse = new Product(1, "Keyboard", 299.99);
+      // Structs e enums
+      var mouse = new Product(1, "Keyboard", 299.99, EProductType.Product);
+      var manutencaoEletrica = new Product(2, "Manutenção Elétrica Residencial", 500, EProductType.Service);
 
-      mouse.Id = 2;
+      mouse.Id = 20;
 
       Console.WriteLine(mouse.Id);
       Console.WriteLine(mouse.Name);
       Console.WriteLine(mouse.Price);
+      Console.WriteLine(mouse.Type);
+      Console.WriteLine((int)mouse.Type); // conversão explícita
     }
 
     static string RetornaNome(
@@ -71,22 +74,30 @@ namespace MeuApp
   struct Product
   {
     // método construtor
-    public Product(int id, string name, double price) 
+    public Product(int id, string name, double price, EProductType type) 
     {
       Id = id;
       Name = name;
       Price = price;
+      Type = type;
     }
 
     // propriedades (sempre começam com letra maiúscula)
     public int Id;
     public string Name;
     public double Price;
+    public EProductType Type;
 
     // métodos
     public double PriceInDolar(double dolar)
     {
       return Price * dolar;
     }
+  }
+
+  enum EProductType
+  {
+    Product = 1,
+    Service = 2
   }
 }
