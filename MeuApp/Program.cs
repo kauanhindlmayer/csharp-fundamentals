@@ -47,6 +47,15 @@ namespace MeuApp
       arr[0] = "Item 2";
       Console.WriteLine(arr[0]);
       Console.WriteLine(arr2[0]);
+
+      // Structs
+      var mouse = new Product(1, "Keyboard", 299.99);
+
+      mouse.Id = 2;
+
+      Console.WriteLine(mouse.Id);
+      Console.WriteLine(mouse.Name);
+      Console.WriteLine(mouse.Price);
     }
 
     static string RetornaNome(
@@ -56,6 +65,28 @@ namespace MeuApp
     )
     {
       return nome + " " + sobrenome + " tem " + idade.ToString();
+    }
+  }
+
+  struct Product
+  {
+    // método construtor
+    public Product(int id, string name, double price) 
+    {
+      Id = id;
+      Name = name;
+      Price = price;
+    }
+
+    // propriedades (sempre começam com letra maiúscula)
+    public int Id;
+    public string Name;
+    public double Price;
+
+    // métodos
+    public double PriceInDolar(double dolar)
+    {
+      return Price * dolar;
     }
   }
 }
