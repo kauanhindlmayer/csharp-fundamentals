@@ -19,6 +19,18 @@ namespace MeuApp
       // Console.WriteLine(valorReal);
       Console.WriteLine(inteiro);
       Console.WriteLine(Convert.ToBoolean(255));
+
+      string nome = RetornaNome("Kauan", "Hindlmayer");
+      Console.WriteLine(nome);
+    }
+
+    static string RetornaNome(
+      string nome, 
+      string sobrenome, 
+      int idade = 18 // parâmetro opcional
+    )
+    {
+      return nome + " " + sobrenome + " tem " + idade.ToString();
     }
   }
 }
