@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Strings
 {
@@ -7,7 +8,7 @@ namespace Strings
     public static void Main(string[] args)
     {
       Console.Clear();
-      Aula03();
+      Aula09();
     }
     
     static void Aula01()
@@ -40,11 +41,78 @@ namespace Strings
       Console.WriteLine(texto.CompareTo("")); // Retorna 0
       Console.WriteLine(texto.CompareTo(null)); // Retorna 0
 
-      var texto2 = "Esste texto é para fins de teste.";
+      var texto2 = "Este texto é para fins de teste.";
       Console.WriteLine(texto2.Contains("teste")); // true
       Console.WriteLine(texto2.Contains("Teste")); // false
       Console.WriteLine(texto2.Contains("Teste", StringComparison.OrdinalIgnoreCase)); // true
       Console.WriteLine(texto2.Contains(null)); // Erro
+    }
+
+    static void Aula04()
+    {
+      var texto = "Este texto é para fins de teste.";
+      Console.WriteLine(texto.StartsWith("Este")); // true
+      Console.WriteLine(texto.StartsWith("este")); // false
+      Console.WriteLine(texto.StartsWith("texto")); // false
+
+      Console.WriteLine(texto.EndsWith("teste")); // true;
+      Console.WriteLine(texto.EndsWith("Teste")); // false;
+      Console.WriteLine(texto.EndsWith("fins")); // false;
+    }
+
+    static void Aula05()
+    {
+      var texto = "Este texto é um teste.";
+      Console.WriteLine(texto.Equals("Este texto é um teste.")); // true
+      Console.WriteLine(texto.Equals("este texto é um teste.")); // false
+      Console.WriteLine(texto.Equals("Este texto é um teste.", StringComparison.OrdinalIgnoreCase)); // true
+    }
+
+    static void Aula06()
+    {
+      var texto = "Este texto é um teste.";
+      Console.WriteLine(texto.IndexOf("é")); // 11
+      Console.WriteLine(texto.LastIndexOf("s")); // 18
+    }
+
+    static void Aula07()
+    {
+      var texto = "Este texto é um teste.";
+      Console.WriteLine(texto.ToLower());
+      Console.WriteLine(texto.ToUpper());
+      Console.WriteLine(texto.Insert(11, "AQUI "));
+      Console.WriteLine(texto.Remove(11, 5));
+      Console.WriteLine(texto.Length);
+    }
+
+    static void Aula08()
+    {
+      var texto = " Este texto é um teste. ";
+      Console.WriteLine(texto.Replace("Este", "isto"));
+      Console.WriteLine(texto.Replace("Casa", "isto"));
+
+      var divisao = texto.Split(" ");
+      Console.WriteLine(divisao[0]);
+      Console.WriteLine(divisao[1]);
+      Console.WriteLine(divisao[2]);
+      Console.WriteLine(divisao[3]);
+
+      var resultado = texto.Substring(5, 5);
+      Console.WriteLine(resultado);
+
+      Console.WriteLine(texto.Trim());
+    }
+
+    static void Aula09()
+    {
+      var texto = new StringBuilder();
+      texto.Append("\nEste texto é um teste.");
+      texto.Append("\nEste texto é um teste.");
+      texto.Append("\nEste texto é um teste.");
+      texto.Append("\nEste texto é um teste.");
+
+      texto.ToString();
+      Console.WriteLine(texto);
     }
   }
 }
