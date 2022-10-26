@@ -133,6 +133,15 @@ namespace ConsoleApp
       Console.WriteLine(timeSpanHoraMinutoSegundo - timeSpanDiaHoraMinutoSegundo);
       Console.WriteLine(timeSpanDiaHoraMinutoSegundo.Days);
       Console.WriteLine(timeSpanDiaHoraMinutoSegundo.Add(new TimeSpan(12, 0, 0)));
+
+      Console.WriteLine(DateTime.DaysInMonth(2020, 2));
+      Console.WriteLine(IsWeekDay(DateTime.Now.DayOfWeek));
+      Console.WriteLine(DateTime.Now.IsDaylightSavingTime());
+    }
+
+    static bool IsWeekDay(DayOfWeek today)
+    {
+      return today == DayOfWeek.Saturday || today == DayOfWeek.Sunday;
     }
   }
 }
